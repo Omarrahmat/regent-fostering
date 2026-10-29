@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Regent Fostering is an independent fostering agency in London, founded by a foster carer. By foster carers, for foster carers. Opening soon.">
+<meta property="og:title" content="Regent Fostering">
+<meta property="og:description" content="An independent fostering agency in London, by foster carers, for foster carers. Opening soon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect width='120' height='120' rx='28' fill='%2307080C'/%3E%3Cg transform='translate(0 24)' stroke-width='12' stroke-linecap='round'%3E%3Cline x1='8' y1='62' x2='34' y2='35' stroke='%23FF6B5B'/%3E%3Cline x1='34' y1='35' x2='60' y2='9' stroke='%23FFB547'/%3E%3Cline x1='60' y1='9' x2='86' y2='35' stroke='%233EE0C8'/%3E%3Cline x1='86' y1='35' x2='112' y2='62' stroke='%23A18CFF'/%3E%3Ccircle cx='60' cy='56' r='9' fill='white' stroke='none'/%3E%3C/g%3E%3C/svg%3E">
+<title>Regent Fostering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one dark world, giant tracked display type, full-bleed colour bands that each carry one brand colour. */
+:root{
+  --ink:#07080C; --panel:#10121A; --line:#1E212B; --line2:#2C3040;
+  --fg:#FFFFFF; --muted:#B8BCC8; --faint:#9DA2B0;
+  --coral:#FF6B5B; --amber:#FFB547; --teal:#3EE0C8; --violet:#A18CFF;
+  --paper:#F3F4F8; --paper-ink:#0B0D14; --paper-muted:#454B5C; --paper-line:#DCDFE8;
+  --coral-d:#C93A29; --amber-d:#9A5A00; --teal-d:#0B7F71; --violet-d:#5A43D4;
+  --display:'Unbounded', 'Arial Black', system-ui, sans-serif;
+  --body:'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-0.005em}
+p{margin:0}
+.eyebrow{font-size:13px;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
+.h1{font-weight:800;font-size:clamp(40px,7.6vw,104px);line-height:.98}
+.h2{font-weight:800;font-size:clamp(30px,5vw,64px);line-height:1.02}
+.h3{font-weight:600;font-size:20px;letter-spacing:.02em;line-height:1.25}
+.lead{font-size:clamp(17px,1.6vw,20px);line-height:1.6;color:var(--muted);max-width:60ch}
+.muted{color:var(--muted)}
+.c-coral{color:var(--coral)}.c-amber{color:var(--amber)}.c-teal{color:var(--teal)}.c-violet{color:var(--violet)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 30px;border-radius:999px;font:700 14px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .15s ease, background .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-coral{background:var(--coral);color:var(--ink)}
+.btn-amber{background:var(--amber);color:var(--ink)}
+.btn-light{background:var(--fg);color:var(--ink)}
+.btn-dark{background:var(--ink);color:var(--fg)}
+.btn-ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px #4A5063}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--fg)}
+.row{display:flex;flex-wrap:wrap;gap:16px}
+
+/* header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(7,8,12,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-word{display:flex;flex-direction:column;line-height:1}
+.brand-word b{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.08em}
+.brand-word span{font-size:9px;font-weight:500;letter-spacing:.52em;margin-top:5px;color:var(--muted)}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{font-size:13px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding-block:8px;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--amber)}
+.nav .btn{color:var(--ink);border:0;min-height:44px;padding:0 22px}
+.menu-btn{display:none;background:none;border:1px solid var(--line2);color:var(--fg);border-radius:999px;min-height:44px;padding:0 18px;font:700 12px var(--body);letter-spacing:.2em;cursor:pointer}
+@media (max-width:1180px){
+  .menu-btn{display:inline-flex;align-items:center}
+  .nav{position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px max(20px,env(safe-area-inset-right,0px)) 20px max(20px,env(safe-area-inset-left,0px))}
+  .nav:not(.open){display:none}
+  .nav a{padding-block:14px;border-bottom:1px solid var(--line)}
+  .nav .btn{margin-top:16px}
+}
+
+/* sections */
+section{padding-block:clamp(72px,10vw,120px)}
+.band{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:10px}
+.band.thin{height:6px}
+.band i:nth-child(1){background:var(--coral)}.band i:nth-child(2){background:var(--amber)}.band i:nth-child(3){background:var(--teal)}.band i:nth-child(4){background:var(--violet)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(40px,6vw,64px)}
+.sec-head > div{display:flex;flex-direction:column;gap:16px;min-width:0}
+.sec-head .lead{max-width:44ch}
+.fill-coral{background:var(--coral);color:var(--ink)}
+.fill-teal{background:var(--teal);color:var(--ink)}
+.fill-violet{background:var(--violet);color:var(--ink)}
+.fill-amber{background:var(--amber);color:var(--ink)}
+.fill-coral .lead,.fill-teal .lead,.fill-violet .lead,.fill-amber .lead{color:var(--ink)}
+.split{display:flex;flex-wrap:wrap;gap:clamp(40px,6vw,72px);align-items:center}
+.split > *{flex:1 1 420px;min-width:0}
+.stack{display:flex;flex-direction:column;gap:20px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:clamp(72px,10vw,120px) clamp(80px,11vw,140px)}
+.orbit{position:absolute;right:-180px;top:20px;width:720px;height:720px;pointer-events:none}
+.orbit div{position:absolute;border-radius:50%}
+.ring{border:1px solid var(--line)}
+.ring.r1{inset:0}.ring.r2{inset:120px;border-color:#262A36}.ring.r3{inset:240px;border-color:#343949}
+.orbit .core{width:26px;height:26px;background:var(--fg);left:347px;top:347px}
+.spin{inset:0;animation:spin 60s linear infinite}
+.spin.s2{inset:120px;animation-duration:44s;animation-direction:reverse}
+.spin.s3{inset:240px;animation-duration:30s}
+.dot{width:20px;height:20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-width:760px){.orbit{opacity:.45;right:-420px;top:40px}}
+.hero-in{position:relative;display:flex;flex-direction:column;gap:30px;max-width:920px}
+.wrap.hero-in{max-width:1280px}
+.wrap.hero-in > *{max-width:920px}
+
+/* grid lists */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{background:var(--ink);padding:34px 28px;display:flex;flex-direction:column;gap:14px;min-height:210px}
+.tile .num{font-family:var(--display);font-size:14px}
+.tile p{color:var(--muted);font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{border:1px solid #262A36;border-radius:24px;padding:34px;display:flex;flex-direction:column;gap:14px}
+.card p{color:var(--muted)}
+.disc{width:44px;height:44px;border-radius:50%}
+.bg-coral{background:var(--coral)}.bg-amber{background:var(--amber)}.bg-teal{background:var(--teal)}.bg-violet{background:var(--violet)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:28px}
+.steps li{display:flex;flex-direction:column;gap:10px;border-top:3px solid var(--coral);padding-top:20px}
+.steps li:nth-child(4n+2){border-color:var(--amber)}.steps li:nth-child(4n+3){border-color:var(--teal)}.steps li:nth-child(4n+4){border-color:var(--violet)}
+.steps .n{font-family:var(--display);font-weight:800;font-size:36px;line-height:1}
+.steps .t{font-weight:700;letter-spacing:.12em;font-size:14px;text-transform:uppercase}
+.steps .d{font-size:15px;color:var(--muted)}
+
+/* promise */
+.promise{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0;border-top:1px solid rgba(7,8,12,.25)}
+.promise div{padding:28px 0;border-bottom:1px solid rgba(7,8,12,.25);display:flex;gap:18px;padding-right:24px}
+.promise b{font-family:var(--display);font-size:15px;min-width:28px}
+
+/* quote */
+.quote{font-family:var(--display);font-weight:600;font-size:clamp(24px,3.4vw,42px);line-height:1.2;max-width:24ch}
+
+/* big figure */
+.figure{border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:8px}
+.figure .big{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,72px);line-height:1}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-family:var(--display);font-weight:600;font-size:clamp(16px,1.8vw,20px)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--body);font-size:28px;font-weight:400;color:var(--amber);flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 26px;color:var(--muted);max-width:68ch}
+
+/* contact blocks */
+.info{background:var(--ink);color:var(--fg);border-radius:24px;padding:26px 30px;display:flex;flex-direction:column;gap:6px}
+.info small{font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+.info strong{font-family:var(--display);font-weight:600;font-size:clamp(17px,2vw,20px);overflow-wrap:anywhere}
+
+/* form */
+form.enq{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;background:var(--panel);border:1px solid #262A36;border-radius:28px;padding:clamp(24px,4vw,36px)}
+.field{display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;min-width:0}
+.field.full,.enq .full{grid-column:1/-1}
+.field input,.field select,.field textarea{font:400 16px var(--body);letter-spacing:0;text-transform:none;padding:15px 16px;border-radius:14px;border:1px solid #343949;background:var(--ink);color:var(--fg);width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(255,181,71,.25)}
+.field textarea{resize:vertical;min-height:120px}
+.form-note{font-size:13px;color:var(--faint)}
+.done{grid-column:1/-1;border:1px solid var(--teal);border-radius:18px;padding:20px;color:var(--fg)}
+.err{font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--coral)}
+
+/* footer */
+.foot-in{display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;padding-block:72px 48px}
+.foot-cols{display:flex;flex-wrap:wrap;gap:48px;font-size:14px;line-height:2.1}
+.foot-cols div{display:flex;flex-direction:column}
+.foot-cols span.h{font-size:12px;letter-spacing:.24em;color:var(--faint);text-transform:uppercase}
+.foot-cols a{text-decoration:none;color:var(--fg)}
+.foot-cols a:hover{color:var(--amber)}
+.legal{border-top:1px solid var(--line);padding-block:24px;font-size:12px;color:var(--faint)}
+
+.page[hidden]{display:none!important}
+
+/* light sections: soften the dark world without losing the brand */
+.light{background:var(--paper);color:var(--paper-ink)}
+.light .lead,.light .muted,.light .card p,.light .steps .d,.light .tile p{color:var(--paper-muted)}
+.light .c-coral{color:var(--coral-d)}.light .c-amber{color:var(--amber-d)}.light .c-teal{color:var(--teal-d)}.light .c-violet{color:var(--violet-d)}
+.light .card{border-color:var(--paper-line);background:#FFFFFF}
+.light .btn-ghost{color:var(--paper-ink);box-shadow:inset 0 0 0 1px #A9AEBB}
+.light .btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--paper-ink)}
+.light .faq,.light .faq details{border-color:var(--paper-line)}
+.light .faq details p{color:var(--paper-muted)}
+.light .tiles{background:var(--paper-line);border-color:var(--paper-line)}
+.light .tile{background:#FFFFFF}
+/* abstract brand art: the logo's roof over a child, in orbit */
+.art{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--ink)}
+.art i{position:absolute;border-radius:50%;border:1px solid #2C3040}
+.art i.a1{width:90%;aspect-ratio:1;left:5%;top:-5%}
+.art i.a2{width:62%;aspect-ratio:1;left:19%;top:14%;border-color:#3A3F52}
+.art i.a3{width:34%;aspect-ratio:1;left:33%;top:33%;border-color:#4A5063}
+.art b{position:absolute;border-radius:50%}
+.art svg{position:absolute;left:50%;top:50%;width:32%;transform:translate(-50%,-50%)}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;align-items:start}
+.calc-panel{background:var(--panel);border:1px solid #262A36;border-radius:28px;padding:clamp(22px,4vw,36px);display:flex;flex-direction:column;gap:20px;min-width:0}
+@media (max-width:560px){.child-row{grid-template-columns:1fr!important}}
+.child-row{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1fr) auto;gap:14px;align-items:end;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.child-row .badge{font-family:var(--display);font-weight:800;font-size:22px;align-self:center;min-width:34px}
+.remove{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:999px;min-height:48px;padding:0 16px;font:700 12px var(--body);letter-spacing:.14em;cursor:pointer}
+.remove:hover{color:var(--fg);border-color:var(--fg)}
+.result{background:var(--amber);color:var(--ink);border-radius:28px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:22px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 96px)}
+.result .big{font-family:var(--display);font-weight:800;font-size:clamp(44px,6vw,76px);line-height:1;font-variant-numeric:tabular-nums}
+.result dl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;margin:0;font-variant-numeric:tabular-nums}
+.result dt{font-weight:500}.result dd{margin:0;font-weight:700;text-align:right}
+.result .note{font-size:13px;line-height:1.5;border-top:1px solid rgba(7,8,12,.25);padding-top:16px}
+.example{display:inline-flex;align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:7px 12px;border-radius:999px;background:var(--ink);color:var(--amber)}
+@media (max-width:760px){.result{position:static}}
+.role{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;padding:26px 0;border-bottom:1px solid var(--line)}
+.role h3{font-size:clamp(17px,2vw,22px);font-weight:600}
+.role p{color:var(--muted);font-size:15px}
+.tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:1px solid var(--line2);color:var(--muted)}
+</style>
+
+<style>
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+.prelaunch{background:var(--amber);color:var(--ink);font-size:13px;font-weight:700;letter-spacing:.06em;padding-block:10px;text-align:center}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#home" aria-label="Regent Fostering home">
+      <svg width="40" height="24" viewBox="0 0 120 72" aria-hidden="true"><line x1="8" y1="62" x2="34" y2="35" stroke="#FF6B5B" stroke-width="12" stroke-linecap="round"/><line x1="34" y1="35" x2="60" y2="9" stroke="#FFB547" stroke-width="12" stroke-linecap="round"/><line x1="60" y1="9" x2="86" y2="35" stroke="#3EE0C8" stroke-width="12" stroke-linecap="round"/><line x1="86" y1="35" x2="112" y2="62" stroke="#A18CFF" stroke-width="12" stroke-linecap="round"/><circle cx="60" cy="56" r="9" fill="#FFFFFF"/></svg>
+      <span class="brand-word"><b>REGENT</b><span>FOSTERING</span></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">MENU</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#become">Become a carer</a>
+      <a href="#transfer">Transfer to us</a>
+      <a href="#support">Support &amp; pay</a>
+      <a href="#about">Our story</a>
+      <a href="#authorities">Local authorities</a>
+      <a href="#careers">Careers</a>
+      <a class="btn btn-light" href="#contact">Opening soon</a>
+    </nav>
+  </div>
+</header>
+
+<div class="prelaunch"><div class="wrap">Opening soon · Regent Fostering is preparing to register with Ofsted and is not yet accepting enquiries.</div></div>
+<main id="main">
+
+<!-- ================= HOME ================= -->
+<div class="page" data-page="home">
+  <section class="hero">
+    <div class="orbit" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="spin"><div class="dot bg-coral" style="left:96px;top:110px"></div><div class="dot bg-violet" style="left:620px;top:560px;width:14px;height:14px"></div></div>
+      <div class="spin s2"><div class="dot bg-amber" style="left:420px;top:40px;width:16px;height:16px"></div></div>
+      <div class="spin s3"><div class="dot bg-teal" style="left:20px;top:190px;width:18px;height:18px"></div></div>
+      <div class="core"></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-in">
+        <p class="eyebrow c-teal">By foster carers · For foster carers · London</p>
+        <h1 class="h1">EVERY CHILD<br>DESERVES A<br><span class="c-coral">HOME</span> <span class="c-amber">THAT</span> <span class="c-teal">LIFTS</span> <span class="c-violet">THEM.</span></h1>
+        <p class="lead">Regent Fostering is an independent fostering agency started by a foster carer. We know this life from the inside, so we've built the agency we always wanted: real support, real training and a community that has your back.</p>
+        <div class="row">
+          <a class="btn btn-coral" href="#contact">Start your journey</a>
+          <a class="btn btn-ghost" href="#authorities">Make a referral</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="band" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+  <section class="light">
+    <div class="wrap split">
+      <div class="art" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="bg-coral" style="width:5%;aspect-ratio:1;left:14%;top:30%"></b><b class="bg-teal" style="width:4%;aspect-ratio:1;left:78%;top:62%"></b><b class="bg-violet" style="width:3%;aspect-ratio:1;left:70%;top:16%"></b><svg viewBox="0 0 120 72"><line x1="8" y1="62" x2="34" y2="35" stroke="#FF6B5B" stroke-width="12" stroke-linecap="round"/><line x1="34" y1="35" x2="60" y2="9" stroke="#FFB547" stroke-width="12" stroke-linecap="round"/><line x1="60" y1="9" x2="86" y2="35" stroke="#3EE0C8" stroke-width="12" stroke-linecap="round"/><line x1="86" y1="35" x2="112" y2="62" stroke="#A18CFF" stroke-width="12" stroke-linecap="round"/><circle cx="60" cy="56" r="9" fill="#FFFFFF"/></svg></div>
+      <div class="stack">
+        <p class="eyebrow c-amber">Carer-led</p>
+        <h2 class="h2">WE'VE SAT WHERE YOU SIT.</h2>
+        <p class="lead">The late-night phone calls. The school meetings. The first time a child laughs in your kitchen. Our founder has lived all of it as a foster carer, and every decision at Regent starts with one question: would this have helped me?</p>
+        <a class="btn btn-ghost" href="#about" style="align-self:flex-start">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fill-coral">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow" style="font-weight:700">The Regent Carer Promise</p><h2 class="h2">SIX THINGS WE<br>WILL ALWAYS DO.</h2></div>
+        <p class="lead">Written by carers, for carers. Hold us to it.</p>
+      </div>
+      <div class="promise">
+        <div><b>01</b><p>You'll reach a real person who knows your family, day or night.</p></div>
+        <div><b>02</b><p>Training comes before a child arrives, not after.</p></div>
+        <div><b>03</b><p>Your fees and allowances are paid on time, every time.</p></div>
+        <div><b>04</b><p>We share everything we know about a child before you say yes.</p></div>
+        <div><b>05</b><p>Carers have a voice in how Regent is run, through our carer forum.</p></div>
+        <div><b>06</b><p>If something goes wrong, we stand beside you through it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="eyebrow c-teal">Foster with us</p><h2 class="h2">FIND THE FOSTERING<br>THAT FITS YOU.</h2></div>
+        <p class="lead">A weekend or a childhood. There's a child who needs exactly what you have.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="num c-coral">Short-term</span><h3 class="h3">A SAFE PLACE NOW</h3><p>A home while a child's long-term plan is made.</p></div>
+        <div class="tile"><span class="num c-amber">Long-term</span><h3 class="h3">A FAMILY TO GROW UP IN</h3><p>Stability through childhood and often beyond 18.</p></div>
+        <div class="tile"><span class="num c-teal">Emergency</span><h3 class="h3">A DOOR THAT OPENS TONIGHT</h3><p>Short-notice care when a child needs safety fast.</p></div>
+        <div class="tile"><span class="num c-violet">Parent &amp; child</span><h3 class="h3">KEEPING FAMILIES TOGETHER</h3><p>Helping a young parent build confidence with their baby.</p></div>
+      </div>
+      <div class="row" style="margin-top:32px"><a class="btn btn-ghost" href="#foster">See all types of fostering</a></div>
+    </div>
+  </section>
+
+  <section class="fill-teal">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow" style="font-weight:700">For local authorities</p>
+        <h2 class="h2">FAST, CAREFUL MATCHING.</h2>
+        <p class="lead">Carers who are the right fit, not just available. Send us a referral and we'll come back quickly with an honest answer.</p>
+        <a class="btn btn-dark" href="#authorities" style="align-self:flex-start">Referral information</a>
+      </div>
+      <div class="stack">
+        <div class="info"><small class="c-teal">Referrals</small><strong>Opening soon</strong><span>We will accept referrals once our Ofsted registration is granted.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow c-violet">Ready when you are</p>
+        <h2 class="h2">ONE CONVERSATION<br>CHANGES EVERYTHING.</h2>
+      </div>
+      <div class="stack">
+        <p class="lead">No forms to wade through, no pressure. Talk to someone who fosters, ask anything, and decide in your own time.</p>
+        <div class="row"><a class="btn btn-amber" href="#contact">Talk to us</a><a class="btn btn-ghost" href="#apply">How it works</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FOSTER ================= -->
+<div class="page" data-page="foster" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-amber">Foster with us</p>
+      <h1 class="h1">FOSTERING<br>THAT <span class="c-amber">FITS</span><br>YOUR LIFE.</h1>
+      <p class="lead">Every child is different, and so is every carer. Here are the ways you can foster with Regent.</p>
+    </div>
+  </section>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <section>
+    <div class="wrap">
+      <div class="tiles">
+        <div class="tile"><span class="num c-coral">01</span><h3 class="h3">SHORT-TERM</h3><p>A safe home while plans are made for a child's future, from a few weeks to a couple of years.</p></div>
+        <div class="tile"><span class="num c-amber">02</span><h3 class="h3">LONG-TERM</h3><p>A stable family for a child to grow up in, often into adulthood through Staying Put.</p></div>
+        <div class="tile"><span class="num c-teal">03</span><h3 class="h3">EMERGENCY</h3><p>Opening your door at short notice, day or night, when a child needs somewhere safe now.</p></div>
+        <div class="tile"><span class="num c-violet">04</span><h3 class="h3">RESPITE</h3><p>Short breaks that give children and other foster families time to recharge.</p></div>
+        <div class="tile"><span class="num c-coral">05</span><h3 class="h3">PARENT &amp; CHILD</h3><p>Supporting a young parent and their baby to build the skills to stay together.</p></div>
+        <div class="tile"><span class="num c-amber">06</span><h3 class="h3">SIBLING GROUPS</h3><p>Keeping brothers and sisters together when everything else has changed.</p></div>
+        <div class="tile"><span class="num c-teal">07</span><h3 class="h3">TEENAGERS</h3><p>Patience and belief for young people on the edge of adulthood.</p></div>
+        <div class="tile"><span class="num c-violet">08</span><h3 class="h3">UNACCOMPANIED MINORS</h3><p>A welcoming home for children who have arrived in the UK alone.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="fill-amber">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow" style="font-weight:700">Can I foster?</p><h2 class="h2">PROBABLY, YES.</h2></div><p class="lead">Foster carers come from every walk of life. What matters is stability, warmth and the room to share your home.</p></div>
+      <div class="promise">
+        <div><b>✓</b><p>Single, married, in a couple, or living with a partner</p></div>
+        <div><b>✓</b><p>Renting or owning your home</p></div>
+        <div><b>✓</b><p>Any ethnicity, religion, gender or sexuality</p></div>
+        <div><b>✓</b><p>With or without children of your own</p></div>
+        <div><b>✓</b><p>A spare bedroom for a child</p></div>
+        <div><b>✓</b><p>Working, depending on the type of fostering</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap split">
+      <h2 class="h2">TRANSFERRING FROM ANOTHER AGENCY?</h2>
+      <div class="stack"><p class="lead">Already a foster carer? We'd love to hear from you. Transfers follow the national transfer protocol, so the children in your care stay settled and nothing is rushed. We'll walk you through every step.</p><a class="btn btn-coral" href="#transfer" style="align-self:flex-start">How transferring works</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SUPPORT ================= -->
+<div class="page" data-page="support" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-teal">Support &amp; pay</p>
+      <h1 class="h1">YOU'RE <span class="c-teal">NEVER</span><br>ON YOUR OWN.</h1>
+      <p class="lead">We built the support we wished we'd had as carers. Here's what you get from day one.</p>
+    </div>
+  </section>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <section class="light">
+    <div class="wrap cards">
+      <div class="card"><div class="disc bg-coral" aria-hidden="true"></div><h3 class="h3">24/7 SUPPORT LINE</h3><p>Someone experienced on the end of the phone, any hour, every day of the year.</p></div>
+      <div class="card"><div class="disc bg-amber" aria-hidden="true"></div><h3 class="h3">YOUR OWN SOCIAL WORKER</h3><p>A supervising social worker with a caseload small enough to really know your family.</p></div>
+      <div class="card"><div class="disc bg-teal" aria-hidden="true"></div><h3 class="h3">TRAINING THAT MATTERS</h3><p>Trauma-informed care, attachment and specialist courses, delivered before a child arrives.</p></div>
+      <div class="card"><div class="disc bg-violet" aria-hidden="true"></div><h3 class="h3">THERAPEUTIC SUPPORT</h3><p>Therapeutic guidance for the children you care for, and for you.</p></div>
+      <div class="card"><div class="disc bg-coral" aria-hidden="true"></div><h3 class="h3">CARER COMMUNITY</h3><p>Support groups, mentoring from experienced carers, and family days out together.</p></div>
+      <div class="card"><div class="disc bg-amber" aria-hidden="true"></div><h3 class="h3">RESPITE &amp; BREAKS</h3><p>Planned breaks so you can rest and keep giving your best.</p></div>
+    </div>
+  </section>
+  <section class="fill-violet">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow" style="font-weight:700">Allowances</p>
+        <h2 class="h2">GENEROUS. CLEAR. ON TIME.</h2>
+        <p class="lead">A professional fee plus allowances for every child in your care, with more for specialist placements. Most foster carers also qualify for generous tax relief through HMRC's qualifying care relief.</p>
+      </div>
+      <div class="figure" style="background:var(--ink);color:var(--fg)">
+        <span class="eyebrow c-violet" style="font-weight:700">From</span>
+        <span class="big">£535</span>
+        <span>per child, per week</span>
+        <span class="muted" style="font-size:14px;margin-top:12px">Plus birthday, holiday and festival allowances, and paid respite.</span>
+        <a class="btn btn-amber" href="#calculator" style="align-self:flex-start;margin-top:16px">Calculate your pay</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= APPLY ================= -->
+<div class="page" data-page="apply" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-coral">How to apply</p>
+      <h1 class="h1">SIX STEPS<br>TO <span class="c-coral">APPROVAL.</span></h1>
+      <p class="lead">Becoming a foster carer usually takes four to six months. A social worker guides you at every stage, and you can pause or stop at any point.</p>
+    </div>
+  </section>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <section>
+    <div class="wrap">
+      <ol class="steps">
+        <li><span class="n">01</span><span class="t">Enquire</span><span class="d">A friendly chat with someone who fosters. No commitment.</span></li>
+        <li><span class="n">02</span><span class="t">Home visit</span><span class="d">We meet you and everyone in your household at home.</span></li>
+        <li><span class="n">03</span><span class="t">Skills to Foster</span><span class="d">Preparation training alongside other applicants.</span></li>
+        <li><span class="n">04</span><span class="t">Assessment</span><span class="d">Your Form F assessment, with checks and references.</span></li>
+        <li><span class="n">05</span><span class="t">Panel</span><span class="d">Meet our independent fostering panel.</span></li>
+        <li><span class="n">06</span><span class="t">Welcome</span><span class="d">Approved and matched with care, at your pace.</span></li>
+      </ol>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-amber">Questions</p><h2 class="h2">ASK US ANYTHING.</h2></div></div>
+      <div class="faq">
+        <details><summary>Do I need to own my home?</summary><p>No. Many foster carers rent. You need a stable home and a spare bedroom for a child.</p></details>
+        <details><summary>Can I foster if I'm single?</summary><p>Yes. Single people make wonderful foster carers. What matters is the care, time and stability you can offer.</p></details>
+        <details><summary>Can I work and foster?</summary><p>It depends on the type of fostering and your hours. Some placements need a carer at home full time; others fit around work. We'll talk it through honestly.</p></details>
+        <details><summary>Is there an age limit?</summary><p>There's no upper age limit. Most agencies ask that applicants are at least 21, and what matters is that you're healthy and able to meet a child's needs.</p></details>
+        <details><summary>Do I get paid while I'm being assessed?</summary><p>Fees and allowances start when a child is placed with you. Assessment and training are free.</p></details>
+        <details><summary>I already foster. Can I move to Regent?</summary><p>Yes. Transfers follow the national transfer protocol so children stay settled. Get in touch for a confidential chat.</p></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="page" data-page="about" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-violet">Our story</p>
+      <h1 class="h1">BY FOSTER<br>CARERS. <span class="c-violet">FOR</span><br>FOSTER CARERS.</h1>
+    </div>
+  </section>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <section class="light">
+    <div class="wrap split" style="align-items:flex-start">
+      <p class="quote">"I started Regent because I knew what good support felt like, and what it felt like when it wasn't there."</p>
+      <div class="stack">
+        <p class="lead">Regent's founder has been a foster carer for seven years. In that time he has seen what makes the difference for children: carers who feel trusted, trained and backed up.</p>
+        <p class="lead">Too often, carers are treated as a resource rather than as professionals and partners. Regent was built to change that. Our carers shape how we work through a carer forum, our staff are recruited for how they treat families, and our caseloads stay small so nobody falls through the gaps.</p>
+        <p class="muted">— Omar, Founder</p>
+      </div>
+    </div>
+  </section>
+  <section class="fill-coral">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow" style="font-weight:700">What we stand for</p><h2 class="h2">OUR VALUES.</h2></div></div>
+      <div class="promise">
+        <div><b>01</b><p><strong>Children first.</strong> Every decision starts with what's right for the child.</p></div>
+        <div><b>02</b><p><strong>Carers as partners.</strong> You're a professional, and we treat you like one.</p></div>
+        <div><b>03</b><p><strong>Honesty.</strong> Clear information, straight answers, no surprises.</p></div>
+        <div><b>04</b><p><strong>Belonging.</strong> A community where every family is known by name.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap split">
+      <h2 class="h2">REGULATED &amp; ACCOUNTABLE.</h2>
+      <div class="stack"><p class="lead">Regent Fostering is preparing its application to register with Ofsted. Once registered, we will be inspected by Ofsted and our reports will be published here.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= AUTHORITIES ================= -->
+<div class="page" data-page="authorities" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-teal">Local authorities</p>
+      <h1 class="h1">THE RIGHT<br><span class="c-teal">MATCH,</span><br>QUICKLY.</h1>
+      <p class="lead">We work in partnership with placing authorities across London and beyond. Our carers are experienced, well supported and matched with care.</p>
+    </div>
+  </section>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <section>
+    <div class="wrap split" style="align-items:flex-start">
+      <div class="stack">
+        <h2 class="h2">MAKING A REFERRAL.</h2>
+        <ol class="steps" style="grid-template-columns:1fr;gap:20px">
+          <li><span class="t">Send the referral</span><span class="d">Email the child's referral form and care plan to our referrals inbox.</span></li>
+          <li><span class="t">We match honestly</span><span class="d">We only put forward carers who can genuinely meet the child's needs.</span></li>
+          <li><span class="t">A full carer profile, quickly</span><span class="d">You receive a full carer profile so you can decide quickly.</span></li>
+          <li><span class="t">Supported from day one</span><span class="d">Our supervising social worker visits within the first week.</span></li>
+        </ol>
+      </div>
+      <div class="stack">
+        <div class="info" style="background:var(--panel)"><small class="c-teal">Referrals</small><strong>Opening soon</strong><span>We will accept referrals once our Ofsted registration is granted.</span></div>
+        <div class="info" style="background:var(--panel)"><small class="c-teal">We place</small><span>Short-term · Long-term · Emergency · Parent &amp; child · Siblings · Teenagers · UASC · Respite</span></div>
+        
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= BECOME ================= -->
+<div class="page" data-page="become" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-coral">Become a foster carer</p>
+      <h1 class="h1">START WITH<br>PEOPLE WHO'VE<br><span class="c-coral">DONE IT.</span></h1>
+      <p class="lead">Thinking about fostering? At Regent, your first conversation is with someone who understands this life from the inside. Ask anything. There's no pressure and no commitment.</p>
+      <div class="row"><a class="btn btn-coral" href="#contact">Talk to a carer</a><a class="btn btn-ghost" href="#apply">See the steps</a></div>
+    </div>
+  </section>
+  <section class="light">
+    <div class="wrap split">
+      <div class="stack">
+        <p class="eyebrow c-coral">Why Regent</p>
+        <h2 class="h2">AN AGENCY BUILT AROUND CARERS.</h2>
+        <p class="lead">Most agencies are run by managers. Regent was started by a foster carer, and carers help shape how we work. That shows up in the details: small caseloads, training before placements, and someone who answers at 2am.</p>
+      </div>
+      <div class="art" aria-hidden="true"><i class="a1"></i><i class="a2"></i><i class="a3"></i><b class="bg-amber" style="width:5%;aspect-ratio:1;left:76%;top:24%"></b><b class="bg-coral" style="width:4%;aspect-ratio:1;left:18%;top:66%"></b><b class="bg-teal" style="width:3%;aspect-ratio:1;left:26%;top:14%"></b><svg viewBox="0 0 120 72"><line x1="8" y1="62" x2="34" y2="35" stroke="#FF6B5B" stroke-width="12" stroke-linecap="round"/><line x1="34" y1="35" x2="60" y2="9" stroke="#FFB547" stroke-width="12" stroke-linecap="round"/><line x1="60" y1="9" x2="86" y2="35" stroke="#3EE0C8" stroke-width="12" stroke-linecap="round"/><line x1="86" y1="35" x2="112" y2="62" stroke="#A18CFF" stroke-width="12" stroke-linecap="round"/><circle cx="60" cy="56" r="9" fill="#FFFFFF"/></svg></div>
+    </div>
+  </section>
+  <section class="fill-amber">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow" style="font-weight:700">Can I foster?</p><h2 class="h2">PROBABLY, YES.</h2></div><p class="lead">Stability, warmth and room in your home matter far more than your background.</p></div>
+      <div class="promise">
+        <div><b>✓</b><p>Single, married, or living with a partner</p></div>
+        <div><b>✓</b><p>Renting or owning your home</p></div>
+        <div><b>✓</b><p>Any ethnicity, religion, gender or sexuality</p></div>
+        <div><b>✓</b><p>With or without children of your own</p></div>
+        <div><b>✓</b><p>A spare bedroom for a child</p></div>
+        <div><b>✓</b><p>Working, depending on the type of fostering</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-teal">What you get</p><h2 class="h2">SUPPORT, TRAINING<br>AND PAY.</h2></div></div>
+      <div class="cards">
+        <div class="card"><div class="disc bg-coral" aria-hidden="true"></div><h3 class="h3">24/7 SUPPORT</h3><p>A real person who knows your family, any hour.</p><a class="btn btn-ghost" href="#support" style="align-self:flex-start;margin-top:auto">Support</a></div>
+        <div class="card"><div class="disc bg-teal" aria-hidden="true"></div><h3 class="h3">FREE TRAINING</h3><p>Skills to Foster, then ongoing specialist courses.</p><a class="btn btn-ghost" href="#apply" style="align-self:flex-start;margin-top:auto">The steps</a></div>
+        <div class="card"><div class="disc bg-violet" aria-hidden="true"></div><h3 class="h3">FROM £535 A WEEK</h3><p>A professional fee and allowances for every child.</p><a class="btn btn-ghost" href="#calculator" style="align-self:flex-start;margin-top:auto">Calculate your pay</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="fill-coral">
+    <div class="wrap split">
+      <h2 class="h2">YOUR FIRST STEP IS A CHAT.</h2>
+      <div class="stack"><p class="lead">Tell us a little about you and we'll call at a time that suits. Most people say they wish they'd called sooner.</p><a class="btn btn-dark" href="#contact" style="align-self:flex-start">Enquire now</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= TRANSFER ================= -->
+<div class="page" data-page="transfer" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-violet">Already a foster carer?</p>
+      <h1 class="h1">MOVE TO AN<br>AGENCY THAT<br><span class="c-violet">GETS IT.</span></h1>
+      <p class="lead">You've given years to fostering. You deserve an agency run by people who've done the job, that listens, and that backs you up. Moving is simpler than you think, and the children in your care stay with you.</p>
+      <div class="row"><a class="btn btn-amber" href="#contact">Confidential chat</a></div>
+    </div>
+  </section>
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-violet">Why carers move to Regent</p><h2 class="h2">WHAT CHANGES<br>WHEN YOU MOVE.</h2></div></div>
+      <div class="cards">
+        <div class="card"><div class="disc bg-coral" aria-hidden="true"></div><h3 class="h3">A SOCIAL WORKER WHO HAS TIME</h3><p>Small caseloads, so your social worker really knows your family.</p></div>
+        <div class="card"><div class="disc bg-amber" aria-hidden="true"></div><h3 class="h3">A VOICE THAT COUNTS</h3><p>Carers help shape how Regent works through our carer forum.</p></div>
+        <div class="card"><div class="disc bg-teal" aria-hidden="true"></div><h3 class="h3">CLEAR, FAIR PAY</h3><p>Transparent fees and allowances, paid on time.</p></div>
+        <div class="card"><div class="disc bg-violet" aria-hidden="true"></div><h3 class="h3">TRAINING THAT GROWS YOU</h3><p>Specialist courses that build on the experience you already have.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-amber">How transferring works</p><h2 class="h2">A CAREFUL,<br>PLANNED MOVE.</h2></div><p class="lead">Transfers follow the national transfer protocol for foster carers, which puts the children's stability first.</p></div>
+      <ol class="steps">
+        <li><span class="n">01</span><span class="t">Confidential chat</span><span class="d">Talk to us privately. Nothing is shared until you decide.</span></li>
+        <li><span class="n">02</span><span class="t">Let your agency know</span><span class="d">You tell your current agency you'd like to move.</span></li>
+        <li><span class="n">03</span><span class="t">Transfer meeting</span><span class="d">Both agencies and the placing authority plan the move together.</span></li>
+        <li><span class="n">04</span><span class="t">Assessment</span><span class="d">We update your assessment, building on what's already known.</span></li>
+        <li><span class="n">05</span><span class="t">Panel</span><span class="d">You're approved by Regent's fostering panel.</span></li>
+        <li><span class="n">06</span><span class="t">Welcome home</span><span class="d">Your approval moves over, with no gap in support.</span></li>
+      </ol>
+    </div>
+  </section>
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-teal">Transfer questions</p><h2 class="h2">WHAT CARERS ASK US.</h2></div></div>
+      <div class="faq">
+        <details><summary>Will the children in my care have to move?</summary><p>The aim of the transfer protocol is that children stay with you. The placing authority is involved throughout and agrees the plan.</p></details>
+        <details><summary>Will my pay stop during the move?</summary><p>No. We plan the move so there's no gap in your fees or allowances. We'll show you exactly what you'll receive with Regent before you decide.</p></details>
+        <details><summary>How long does a transfer take?</summary><p>It depends on your circumstances and the agencies involved. We'll give you a realistic timeline at the start and keep you updated.</p></details>
+        <details><summary>Is the first conversation confidential?</summary><p>Yes. We won't contact your current agency or anyone else until you've decided to go ahead.</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="fill-violet">
+    <div class="wrap split">
+      <h2 class="h2">LET'S TALK, CARER TO CARER.</h2>
+      <div class="stack"><p class="lead">A private, no-pressure conversation about what moving to Regent would look like for your family.</p><a class="btn btn-dark" href="#contact" style="align-self:flex-start">Book a confidential chat</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CAREERS ================= -->
+<div class="page" data-page="careers" hidden>
+  <section class="hero" style="padding-bottom:clamp(56px,8vw,96px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-teal">Careers</p>
+      <h1 class="h1">DO THE SOCIAL<br>WORK YOU<br><span class="c-teal">CAME IN FOR.</span></h1>
+      <p class="lead">Small caseloads, a carer-led culture and a team that has your back. Help us build an agency that families are proud to be part of.</p>
+    </div>
+  </section>
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-teal">Why work at Regent</p><h2 class="h2">BUILT FOR GOOD<br>PRACTICE.</h2></div></div>
+      <div class="cards">
+        <div class="card"><div class="disc bg-teal" aria-hidden="true"></div><h3 class="h3">MANAGEABLE CASELOADS</h3><p>Time to build real relationships with carers and children.</p></div>
+        <div class="card"><div class="disc bg-coral" aria-hidden="true"></div><h3 class="h3">A FOUNDING TEAM</h3><p>Join early and help shape how Regent works.</p></div>
+        <div class="card"><div class="disc bg-amber" aria-hidden="true"></div><h3 class="h3">REFLECTIVE SUPERVISION</h3><p>Regular supervision and training that develops your practice.</p></div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow c-amber">Roles</p><h2 class="h2">WHO WE'RE<br>LOOKING FOR.</h2></div><p class="lead">We are building our founding team. Applications open soon; check back here for full role details.</p></div>
+      <div style="border-top:1px solid var(--line)">
+        <div class="role"><div><h3>Registered Manager</h3><p>Lead our fostering service and practice. Qualified, registered social worker with management experience.</p></div><span class="tag">Full time</span></div>
+        <div class="role"><div><h3>Supervising Social Worker</h3><p>Support, supervise and champion our foster carers. Registered with Social Work England.</p></div><span class="tag">Full time</span></div>
+        <div class="role"><div><h3>Agency Decision Maker</h3><p>At least 3 years' post-qualifying childcare social work experience.</p></div><span class="tag">Sessional</span></div>
+        <div class="role"><div><h3>Independent Panel Chair &amp; Members</h3><p>Join our fostering panel, including people with lived experience of care and fostering.</p></div><span class="tag">Sessional</span></div>
+        <div class="role"><div><h3>Recruitment &amp; Marketing Officer</h3><p>Help families across London discover fostering with Regent.</p></div><span class="tag">Full time</span></div>
+      </div>
+      </div>
+  </section>
+</div>
+
+<!-- ================= CALCULATOR ================= -->
+<div class="page" data-page="calculator" hidden>
+  <section class="hero" style="padding-bottom:clamp(40px,6vw,64px)">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-amber">Pay calculator</p>
+      <h1 class="h1">WHAT COULD<br>YOU <span class="c-amber">EARN?</span></h1>
+      <p class="lead">Add the children you might care for and see an estimate of your weekly fostering income, including your fee and allowances.</p>
+    </div>
+  </section>
+  <section style="padding-top:0">
+    <div class="wrap calc">
+      <div class="calc-panel">
+        <div id="childRows" class="stack" style="gap:20px"></div>
+        <button class="btn btn-ghost" type="button" id="addChild" style="align-self:flex-start">+ Add another child</button>
+      </div>
+      <div class="result" aria-live="polite">
+        <span class="example">Based on average London rates</span>
+        <div class="stack" style="gap:6px"><span class="eyebrow" style="font-weight:700">Estimated weekly income</span><span class="big" id="weekly">£0</span></div>
+        <dl>
+          <dt>Per month</dt><dd id="monthly">£0</dd>
+          <dt>Per year</dt><dd id="yearly">£0</dd>
+          <dt>Children</dt><dd id="count">0</dd>
+        </dl>
+        <p class="note">Estimates only, per child per week including fee and allowance. Actual payments depend on each child's needs and the placement agreed. Parent &amp; child placements are paid at one flat rate. Most foster carers pay little or no income tax on fostering income thanks to HMRC's qualifying care relief.</p>
+        <a class="btn btn-dark" href="#contact" style="align-self:flex-start">Talk to us about fostering</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" data-page="contact" hidden>
+  <section class="hero">
+    <div class="wrap hero-in">
+      <p class="eyebrow c-amber">Opening soon</p>
+      <h1 class="h1">WE'RE<br><span class="c-amber">ALMOST</span><br>HERE.</h1>
+      <p class="lead">Regent Fostering is preparing to register with Ofsted. Until our registration is granted, we can't take enquiries from people interested in fostering or referrals from local authorities.</p>
+      <p class="lead">Please check back soon. When we open, this page will put you straight through to our team.</p>
+      <div class="row"><a class="btn btn-ghost" href="#about">Read our story</a><a class="btn btn-ghost" href="#calculator">Try the pay calculator</a></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="band thin" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="wrap foot-in">
+    <div class="stack" style="gap:12px;flex:1 1 300px">
+      <span style="font-family:var(--display);font-weight:800;font-size:clamp(44px,7vw,88px);line-height:.9;letter-spacing:.04em">REGENT</span>
+      <span style="font-size:13px;letter-spacing:.5em;color:var(--muted)">FOSTERING</span>
+      <span class="muted" style="font-size:14px;margin-top:8px">By foster carers, for foster carers.</span>
+    </div>
+    <div class="foot-cols">
+      <div><span class="h">Foster</span><a href="#become">Become a carer</a><a href="#transfer">Transfer to us</a><a href="#foster">Types of fostering</a><a href="#support">Support &amp; pay</a><a href="#calculator">Pay calculator</a><a href="#apply">How to apply</a><a href="#about">Our story</a></div>
+      <div><span class="h">Professionals</span><a href="#authorities">Make a referral</a><a href="#careers">Careers</a><a href="#contact">Contact us</a></div>
+      <div><span class="h">Based in</span><span>London</span><span>Opening soon</span></div>
+    </div>
+  </div>
+  <div class="wrap legal">Regent Fostering · Preparing to register with Ofsted. We are not yet accepting fostering enquiries or referrals.</div>
+</footer>
+
+<script>
+(function(){
+  var pages=[].slice.call(document.querySelectorAll('.page'));
+  var names=pages.map(function(p){return p.dataset.page});
+  var navLinks=[].slice.call(document.querySelectorAll('#nav a'));
+  var nav=document.getElementById('nav'), btn=document.getElementById('menuBtn');
+  function show(){
+    var h=(location.hash||'').replace('#','');
+    if(names.indexOf(h)<0) h='home';
+    pages.forEach(function(p){p.hidden=p.dataset.page!==h});
+    navLinks.forEach(function(a){ if(a.getAttribute('href')==='#'+h) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',show); show();
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',String(o));});
+
+  /* ---- Pay calculator ----
+     Weekly fee + allowance per child, set to the average of published London independent agency rates (Oct 2026):
+     under 11 £535, 11–15 £565, 16–17 £585; parent & child £900 flat; complex needs +£150. Adjust to Regent's own rates. */
+  var RATES={
+    age:{'u11':535,'11-15':565,'16-17':585},
+    uplift:{standard:0,emergency:0,siblings:0,complex:150},
+    parentchild:900
+  };
+  var AGE_LABELS={'u11':'Under 11','11-15':'11–15 years','16-17':'16–17 years'};
+  var TYPE_LABELS={standard:'Short or long-term',emergency:'Emergency',siblings:'Part of a sibling group',complex:'Complex needs',parentchild:'Parent & child'};
+  var rowsEl=document.getElementById('childRows'), addBtn=document.getElementById('addChild');
+  var kids=[{age:'u11',type:'standard'}], MAX=4;
+  function rate(k){return k.type==='parentchild'?RATES.parentchild:RATES.age[k.age]+RATES.uplift[k.type]}
+  var gbp=function(v){return '£'+Math.round(v).toLocaleString('en-GB')};
+  function opts(map,sel){return Object.keys(map).map(function(k){return '<option value="'+k+'"'+(k===sel?' selected':'')+'>'+map[k]+'</option>'}).join('')}
+  function render(){
+    rowsEl.innerHTML=kids.map(function(k,i){
+      return '<div class="child-row"><span class="badge c-amber">'+(i+1)+'</span>'+
+        '<label class="field" for="age'+i+'">Age<select id="age'+i+'" data-i="'+i+'" data-k="age"'+(k.type==='parentchild'?' disabled':'')+'>'+opts(AGE_LABELS,k.age)+'</select></label>'+
+        '<label class="field" for="type'+i+'">Placement<select id="type'+i+'" data-i="'+i+'" data-k="type">'+opts(TYPE_LABELS,k.type)+'</select></label>'+
+        (kids.length>1?'<button class="remove" type="button" data-remove="'+i+'" aria-label="Remove child '+(i+1)+'">Remove</button>':'<span></span>')+'</div>';
+    }).join('');
+    addBtn.hidden=kids.length>=MAX;
+    total();
+  }
+  function total(){
+    var w=kids.reduce(function(s,k){return s+rate(k)},0);
+    document.getElementById('weekly').textContent=gbp(w);
+    document.getElementById('monthly').textContent=gbp(w*52/12);
+    document.getElementById('yearly').textContent=gbp(w*52);
+    document.getElementById('count').textContent=kids.length;
+  }
+  rowsEl.addEventListener('change',function(e){var t=e.target;if(t.dataset.k){kids[+t.dataset.i][t.dataset.k]=t.value;total();}});
+  rowsEl.addEventListener('click',function(e){var r=e.target.getAttribute('data-remove');if(r!==null){kids.splice(+r,1);render();}});
+  addBtn.addEventListener('click',function(){if(kids.length<MAX){kids.push({age:'11-15',type:'standard'});render();}});
+  /* parent & child pays a flat rate, so the age choice doesn't apply */
+  rowsEl.addEventListener('change',function(e){if(e.target.dataset.k==='type'){var i=+e.target.dataset.i,a=document.getElementById('age'+i);if(a)a.disabled=kids[i].type==='parentchild';}});
+  render();
+
+})();
+</script>
+</body>
+</html>
